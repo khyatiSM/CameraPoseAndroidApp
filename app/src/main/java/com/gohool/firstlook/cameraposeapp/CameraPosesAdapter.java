@@ -25,7 +25,7 @@ import static android.graphics.Color.*;
 
 
 public class CameraPosesAdapter extends RecyclerView.Adapter<CameraPosesAdapter.ViewHolder> {
-    private static final String Tag ="RecyclerViewAdapter that is,Camera poses adapter";
+    private static final String Tag ="RecyclerViewAdapter";
     private ArrayList<String> imageUrls;
     private Context mContext;
     private ArrayList<String> img_fav=new ArrayList<>(); // image which will be stored in favourite list

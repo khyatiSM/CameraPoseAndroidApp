@@ -120,6 +120,8 @@ public static String image_url;
 
             Intent intent=new Intent(this,FavRecyclerFinal.class);
 
+            Log.d("aararaar",imageUrls.get(0));
+
             intent.putExtra("array_list", imageUrls);
             intent.putExtra("position",position);
             intent.putExtra("flag",flg);

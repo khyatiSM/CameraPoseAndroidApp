@@ -28,8 +28,6 @@ public class FavouriteAdapter extends RecyclerView.Adapter<FavouriteAdapter.FavV
             imageViews.remove(position);
             notifyItemChanged(position);
         }*/
-
-
     }
 
     @NonNull

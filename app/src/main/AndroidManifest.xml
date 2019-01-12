@@ -20,10 +20,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".SecondActivity" />
-        <activity android:name=".FavRecyclerFinal"
+        <activity
+            android:name=".FavRecyclerFinal"
             tools:ignore="DuplicateActivity" />
-
-        <activity android:name=".Login"></activity>
+        <activity android:name=".Login" />
+        <activity android:name=".ViewProfile"></activity>
     </application>
 
 </manifest>
