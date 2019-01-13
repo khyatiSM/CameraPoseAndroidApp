@@ -5,9 +5,8 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-
+    android:theme="@style/AppTheme1"
     android:layout_margin="1dp">
-
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -56,7 +55,6 @@
                     android:layout_height="15dp"
                     android:layout_alignEnd="@+id/image_of_fav"
                     android:layout_below="@+id/image_of_fav"
-                    android:layout_marginTop="4dp"
                     android:autoSizeMaxTextSize="25dp"
                     android:autoSizeMinTextSize="8dp"
 
@@ -81,6 +79,8 @@
 
 
         </android.support.v7.widget.CardView>
+
+
     </RelativeLayout>
 
 

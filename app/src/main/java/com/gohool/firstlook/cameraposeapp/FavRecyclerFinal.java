@@ -1,6 +1,7 @@
 package com.gohool.firstlook.cameraposeapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -9,45 +10,49 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
+import static com.gohool.firstlook.cameraposeapp.CameraPosesAdapter.img_fav;
+
 public class FavRecyclerFinal extends AppCompatActivity {
 
-    public ArrayList<String> imageUrls;
+    private ArrayList<String> imageUrls;
 
-    public int flag;
-    public RecyclerView recyclerView;
-    public int position;
 
-  /*  FavRecyclerFinal(ArrayList<String> images, int flag, int index) {
-        imageUrls = images;
-        this.flag = flag;
-        this.position=index;
-    }
-    FavRecyclerFinal(){
+    private RecyclerView recyclerView;
 
-    }
-*/
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.favourite_list_recyclerview);
-        recyclerView=(RecyclerView)findViewById(R.id.fav_recyclerview);
-        recyclerView.setLayoutManager(new GridLayoutManager(this,3));
-        Bundle bundle = getIntent().getExtras();
+        recyclerView = (RecyclerView) findViewById(R.id.fav_recyclerview);
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 3));
 
-        ArrayList<String> array = (ArrayList<String>) bundle.getStringArrayList("array_list");
-        position=bundle.getInt("position");
-        flag=bundle.getInt("flag");
-
-        FavouriteAdapter adapter=new FavouriteAdapter(this,array,position,flag);
+        FavouriteAdapter adapter = new FavouriteAdapter(this, img_fav);
         recyclerView.setAdapter(adapter);
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.option_menu, menu);
+        return true;
+    }
 
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.favourites) {
+
+        }
+        return false;
+    }
 }

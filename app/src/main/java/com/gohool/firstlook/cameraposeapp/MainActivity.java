@@ -29,13 +29,13 @@ import static com.gohool.firstlook.cameraposeapp.R.layout.activity_favourite_gri
 
 public class MainActivity extends AppCompatActivity {
 
-public static String image_url;
+    public static String image_url;
     private  ArrayList<String> imageUrls;
-    private Toolbar toolbar;
-    private Spinner mySpinner;
+    private  Toolbar toolbar;
+    private  Spinner mySpinner;
+    public static String categoryResults="";
 
-    public static int flg;
-    public static int position;
+
 
 
     @Override
@@ -54,6 +54,9 @@ public static String image_url;
 
 
 
+
+
+
         mySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -61,6 +64,17 @@ public static String image_url;
                         mySpinner.getSelectedItem().toString(),
                         Toast.LENGTH_SHORT)
                         .show();
+
+                String selectedItem = adapterView.getItemAtPosition(i).toString();
+                Log.d("Selected category item",selectedItem);
+
+               /* if(selectedItem.equals("Solo"))
+                {  // do your stuff} */
+                 categoryResults=selectedItem;
+                Fragment categoryFragment=new BackCameraFragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, categoryFragment).commit();
+
+
             }
 
             @Override
@@ -95,13 +109,7 @@ public static String image_url;
         });
 
     }
-    public void add(ArrayList<String> ar, int flg, int position){
-        imageUrls=ar;
-        this.flg=flg;
-        this.position=position;
 
-
-    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater=getMenuInflater();
@@ -113,25 +121,15 @@ public static String image_url;
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId()==R.id.favourites){
-          /*  Intent intent=new Intent(this,FavRecyclerFinal.class);
-            startActivity(intent);*/
-          //  setContentView(R.layout.activity_fav_recycler_final);
-          //  FavRecyclerFinal fv=new FavRecyclerFinal(imageUrls,flg,position);
 
-            Intent intent=new Intent(this,FavRecyclerFinal.class);
-
-            Log.d("aararaar",imageUrls.get(0));
-
-            intent.putExtra("array_list", imageUrls);
-            intent.putExtra("position",position);
-            intent.putExtra("flag",flg);
-            startActivity(intent);
-
-
+        Intent intent=new Intent(this,FavRecyclerFinal.class);
+        startActivity(intent);
         }
-
-
-       return false;
+        if(item.getItemId()==R.id.profile){
+            Intent intent=new Intent(this,ViewProfile.class);
+            startActivity(intent);
+        }
+        return false;
     }
 }
 

@@ -26,9 +26,12 @@ import static android.graphics.Color.*;
 
 public class CameraPosesAdapter extends RecyclerView.Adapter<CameraPosesAdapter.ViewHolder> {
     private static final String Tag ="RecyclerViewAdapter";
-    private ArrayList<String> imageUrls;
+    public static ArrayList<String> imageUrls;
     private Context mContext;
-    private ArrayList<String> img_fav=new ArrayList<>(); // image which will be stored in favourite list
+    public static ArrayList<String> img_fav;
+    public  static int index;// image which will be stored in favourite list
+    public static int flagSelected=0;
+    private ImageView fav_back_to_layout;
 
 
     public  CameraPosesAdapter (Context mContext, ArrayList<String> imageUrls) {
@@ -43,12 +46,15 @@ public class CameraPosesAdapter extends RecyclerView.Adapter<CameraPosesAdapter.
     public  CameraPosesAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         Log.d(Tag,"OnCreateMethod is called");
         View view= LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.fragment_back_camera_layout,viewGroup,false);
-        return new ViewHolder(view);
+       img_fav=new ArrayList<>();
+
+      return  new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull final CameraPosesAdapter.ViewHolder viewHolder, final int position) {
         Glide.with(mContext).asBitmap().load(imageUrls.get(position)).into(viewHolder.image);
+
 
         viewHolder.image.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +63,7 @@ public class CameraPosesAdapter extends RecyclerView.Adapter<CameraPosesAdapter.
                  Intent intent;
                  intent = new Intent(v.getContext(),SecondActivity.class);
                  intent.putExtra("ImageUrl",imageUrls.get(position));
+                 intent.putExtra("flag",flagSelected);
                  mContext.startActivity(intent);
 
             }
@@ -66,22 +73,21 @@ public class CameraPosesAdapter extends RecyclerView.Adapter<CameraPosesAdapter.
             int flag=0;
             @Override
             public void onClick(View v) {
-                if(flag==0){
+                if(flag==0 ){
                     viewHolder.favorite.setColorFilter(RED);
                     img_fav.add(imageUrls.get(position));
-                  //  FavRecyclerFinal fv=new FavRecyclerFinal(img_fav,flag,position);
-                    MainActivity m=new MainActivity();
-                    m.add(img_fav,flag,position);
-
-
+                    index=position;
+                    flagSelected=flag;
                     flag=1;
+
                 }
                 else{
                     viewHolder.favorite.setColorFilter(BLACK);
-
-                  //  FavRecycler fv=new FavRecycler(imageUrls.get(position),flag);
-
+                    img_fav.remove(imageUrls.get(position));
+                    index=position;
+                    flagSelected=flag;
                     flag=0;
+
                 }
 
             }

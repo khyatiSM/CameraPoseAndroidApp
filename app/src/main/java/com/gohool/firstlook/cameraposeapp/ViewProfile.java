@@ -9,11 +9,16 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 
-public class ViewProfile extends AppCompatActivity  implements View.OnClickListener,GoogleApiClient.OnConnectionFailedListener  {
+import static com.gohool.firstlook.cameraposeapp.Login.Email;
+import static com.gohool.firstlook.cameraposeapp.Login.Name;
+import static com.gohool.firstlook.cameraposeapp.Login.profile_url;
+
+public class ViewProfile extends AppCompatActivity   {
 
     private TextView name,email;
     private SignInButton signInButton;
@@ -32,17 +37,13 @@ public class ViewProfile extends AppCompatActivity  implements View.OnClickListe
         signout=(Button)findViewById(R.id.sign_out);
         photo=(ImageView)findViewById(R.id.profile_photo);
 
+        name.setText(Name);
+        email.setText(Email);
+        Glide.with(this).load(profile_url).into(photo);
+
 
     }
 
 
-    @Override
-    public void onClick(View v) {
 
-    }
-
-    @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-
-    }
 }

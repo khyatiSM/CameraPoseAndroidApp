@@ -12,6 +12,8 @@ import com.bumptech.glide.Glide;
 
 import static android.graphics.Color.BLACK;
 import static android.graphics.Color.RED;
+import static com.gohool.firstlook.cameraposeapp.CameraPosesAdapter.flagSelected;
+import static com.gohool.firstlook.cameraposeapp.CameraPosesAdapter.img_fav;
 
 public class SecondActivity extends AppCompatActivity {
     ImageView enlargeImg;
@@ -30,16 +32,20 @@ public class SecondActivity extends AppCompatActivity {
         Intent intent=getIntent();
         url=intent.getExtras().getString("ImageUrl");
         Glide.with(this).asBitmap().load(url).into(enlargeImg);
+
         fav.setOnClickListener(new View.OnClickListener() {
             int flag=0;
             @Override
             public void onClick(View v) {
-                if(flag==0){
+                if(flagSelected==0){
                     fav.setColorFilter(RED);
+                    img_fav.add(url);
+                    flagSelected=flag;
                     flag=1;
                 }
                 else{
                     fav.setColorFilter(BLACK);
+                    flagSelected=flag;
                     flag=0;
                 }
 
