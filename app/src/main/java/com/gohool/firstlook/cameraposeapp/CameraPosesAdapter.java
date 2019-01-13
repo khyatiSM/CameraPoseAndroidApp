@@ -24,6 +24,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import static android.graphics.Color.*;
 
 
+
 public class CameraPosesAdapter extends RecyclerView.Adapter<CameraPosesAdapter.ViewHolder> {
     private static final String Tag ="RecyclerViewAdapter";
     public static ArrayList<String> imageUrls;
@@ -32,11 +33,14 @@ public class CameraPosesAdapter extends RecyclerView.Adapter<CameraPosesAdapter.
     public  static int index;// image which will be stored in favourite list
     public static int flagSelected=0;
     private ImageView fav_back_to_layout;
+    private boolean frontcamera;
+    private boolean backcamera;
 
 
-    public  CameraPosesAdapter (Context mContext, ArrayList<String> imageUrls) {
+    public  CameraPosesAdapter (Context mContext, ArrayList<String> imageUrls,boolean frontcamera) {
         this.imageUrls = imageUrls;
         this.mContext = mContext;
+        this.frontcamera=frontcamera;
     }
 
 
@@ -45,8 +49,18 @@ public class CameraPosesAdapter extends RecyclerView.Adapter<CameraPosesAdapter.
     @Override
     public  CameraPosesAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         Log.d(Tag,"OnCreateMethod is called");
-        View view= LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.fragment_back_camera_layout,viewGroup,false);
-       img_fav=new ArrayList<>();
+        img_fav=new ArrayList<>();
+        View view=null;
+        if(!frontcamera){
+             view= LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.fragment_back_camera_layout,viewGroup,false);
+
+        }
+        else{
+             view= LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.fragment_front_camera_layout,viewGroup,false);
+
+        }
+
+
 
       return  new ViewHolder(view);
     }

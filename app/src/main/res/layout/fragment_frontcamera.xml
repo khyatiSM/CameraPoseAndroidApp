@@ -1,11 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="@color/colorAccent">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main_recycler"
+    android:orientation="vertical"
+    android:scrollbars="vertical"
+
+    >
+
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="FrontCamera Fragment"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"/>
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="55dp"
+        android:text="Solo Poses"
+        android:textFontWeight="25"
+        android:textSize="22dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/Frontrecyclerview1ID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="90dp"
+            android:orientation="horizontal"></android.support.v7.widget.RecyclerView>
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="245dp"
+        android:text="Couple Poses"
+        android:textFontWeight="25"
+        android:textSize="22dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/Frontrecyclerview2ID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="287dp"
+            android:orientation="horizontal"></android.support.v7.widget.RecyclerView>
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="435dp"
+        android:text="Family Poses"
+        android:textFontWeight="25"
+        android:textSize="22dp" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/Frontrecyclerview3ID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="492dp"
+            android:orientation="horizontal"></android.support.v7.widget.RecyclerView>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="635dp"
+        android:text="Friends Poses"
+        android:textFontWeight="25"
+        android:textSize="22dp" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/Frontrecyclerview4ID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="667dp"
+            android:orientation="horizontal"></android.support.v7.widget.RecyclerView>
+
+    </LinearLayout>
+
 </RelativeLayout>

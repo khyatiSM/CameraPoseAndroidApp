@@ -23,6 +23,7 @@ public class BackCameraFragment extends Fragment {
     private static final String TAG = "MainActivity";
     private ArrayList<String> imageUrls=new ArrayList<>();
     RecyclerView main_recycler_view;
+    private boolean backcamera=true;
 
     @Nullable
     @Override
@@ -84,23 +85,23 @@ public class BackCameraFragment extends Fragment {
         Log.d(TAG, "initRecyclerView: init recyclerview.");
         RecyclerView recyclerView1 = (RecyclerView)view.findViewById(R.id.recyclerview1);
         recyclerView1.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL, false));
-        CameraPosesAdapter adapter1 = new CameraPosesAdapter(getContext(), imageUrls);
+        CameraPosesAdapter adapter1 = new CameraPosesAdapter(getContext(), imageUrls,backcamera);
         recyclerView1.setAdapter(adapter1);
 
 
         RecyclerView recyclerView2 = (RecyclerView)view.findViewById(R.id.recyclerview2);
         recyclerView2.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL, false));
-        CameraPosesAdapter adapter2 = new CameraPosesAdapter(getContext(), imageUrls);
+        CameraPosesAdapter adapter2 = new CameraPosesAdapter(getContext(), imageUrls,backcamera);
         recyclerView2.setAdapter(adapter2);
 
         RecyclerView recyclerView3 = (RecyclerView)view.findViewById(R.id.recyclerview3);
         recyclerView3.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL, false));
-        CameraPosesAdapter adapter3 = new CameraPosesAdapter(getContext(), imageUrls);
+        CameraPosesAdapter adapter3 = new CameraPosesAdapter(getContext(), imageUrls,backcamera);
         recyclerView3.setAdapter(adapter3);
 
         RecyclerView recyclerView4 = (RecyclerView)view.findViewById(R.id.recyclerview4);
         recyclerView4.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL, false));
-        CameraPosesAdapter adapter4 = new CameraPosesAdapter(getContext(), imageUrls);
+        CameraPosesAdapter adapter4 = new CameraPosesAdapter(getContext(), imageUrls,backcamera);
         recyclerView4.setAdapter(adapter4);
     }
 
@@ -144,7 +145,7 @@ public class BackCameraFragment extends Fragment {
         Log.d(TAG, "initRecyclerView: init recyclerview.");
         RecyclerView recyclerView1 = (RecyclerView) view.findViewById(R.id.category_recyclerID);
         recyclerView1.setLayoutManager(new GridLayoutManager(getContext(), 3));
-        CameraPosesAdapter adapter1 = new CameraPosesAdapter(getContext(), imageUrls);
+        CameraPosesAdapter adapter1 = new CameraPosesAdapter(getContext(), imageUrls,backcamera);
         recyclerView1.setAdapter(adapter1);
 
 
